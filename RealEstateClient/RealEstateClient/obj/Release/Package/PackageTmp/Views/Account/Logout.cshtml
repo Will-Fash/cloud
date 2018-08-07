@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+    if (localStorage.getItem('castle_user_access_token') !== null) {
+        $.ajax({
+            url: "http://localhost:53399/api/Account/Logout",
+            async: false,
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('castle_user_access_token')
+            },
+            success: function (data) {
+                localStorage.removeItem('castle_user_access_token');
+                window.location.href = '/';
+            },
+            error: function (xhr, status, error) {
+                localStorage.removeItem('castle_user_access_token');
+                window.location.href = '/';
+            }
+        });
+    }
+    else
+        window.location.href = '/';
+</script>

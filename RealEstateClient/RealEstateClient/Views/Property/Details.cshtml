@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Property Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="page-banner padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="text-uppercase propertyTitle"></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="property" class="padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 listing1 property-details">
+                <h2 class="text-uppercase propertyTitle"></h2>
+                <p class="bottom30 propertyLocation"></p>
+                <div id="property-d-1" class="owl-carousel single propertyPictures">
+                </div>
+                <div id="property-d-1-2" class="owl-carousel single propertyPictures">
+                </div>
+                <h2 class="text-uppercase" style="margin-top: 25px;">Property Description</h2>
+                <div class="propertyDescription" style="white-space:pre-wrap;margin-top:5px;margin-bottom: 25px;text-align:justify;"></div>
+                <h2 class="text-uppercase bottom20">Quick Summary</h2>
+                <div class="row property-d-table bottom40">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <table class="table table-striped table-responsive">
+                            <tbody>
+                                <tr>
+                                    <td><b>Property Id</b></td>
+                                    <td class="text-right propertyId"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Price</b></td>
+                                    <td class="text-right propertyPrice"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status</b></td>
+                                    <td class="text-right propertyStatus"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <table class="table table-striped table-responsive">
+                            <tbody>
+                                <tr>
+                                    <td><b>Property Size</b></td>
+                                    <td class="text-right propertySize"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bedrooms</b></td>
+                                    <td class="text-right propertyBedrooms"></td>
+                                </tr>
+                                <tr>
+                                    <td><b> Bathrooms</b></td>
+                                    <td class="text-right propertyBathrooms">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h2 class="text-uppercase bottom20">Features</h2>
+                <div class="row bottom40 propertyFeatures">
+
+                </div>
+
+                <h2 class="text-uppercase bottom20">Contact Agent</h2>
+                <div class="row">
+                    <div class="col-sm-6 bottom40">
+                        <div class="agent_wrap">
+                            <h3 class="agentName">Bohdan Kononets</h3>
+                            <p class="bottom30 agentDescription"></p>
+                            <table class="agent_contact table">
+                                <tbody>
+                                    <tr class="bottom10">
+                                        <td><strong>Phone:</strong></td>
+                                        <td class="text-right agentPhone"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Email Adress:</strong></td>
+                                        <td class="text-right agentMail"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="border-bottom:1px solid #d3d8dd;" class="bottom15"></div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-6 bottom40">
+                        <form id="contactForm" class="callus">
+                            <div class="form-group">
+                                <input type="text" id="name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <input type="submit" class="btn-blue uppercase border_radius" value="submit now">
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/web_services/property.js"></script>

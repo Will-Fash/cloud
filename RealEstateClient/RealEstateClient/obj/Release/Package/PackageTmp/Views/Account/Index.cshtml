@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Login or Register";
+}
+
+<section class="page-banner padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="text-uppercase">Login or Register</h1>
+                <p>We would love you to join us.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="login" class="padding">
+    <div class="container">
+        <h3 class="hidden">hidden</h3>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="profile-login">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a id="loginTabLink" href="#login-tab" aria-controls="login-tab" role="tab" data-toggle="tab">Login</a></li>
+                        <li role="presentation"><a href="#register-tab" aria-controls="register-tab" role="tab" data-toggle="tab">Register</a></li>
+                    </ul>
+                    <div class="tab-content padding_half">
+                        <div role="tabpanel" class="tab-pane fade in active" id="login-tab">
+                            <div class="agent-p-form">
+                                <form method="post" id="loginForm" class="callus clearfix">
+                                    <div class="col-sm-12 social-logins" style="margin-bottom: 15px;">
+                                        <div id="my-signin1"></div>
+                                    </div>
+                                    <div class="single-query form-group col-sm-12">
+                                        <input type="text" name="loginUsername" id="loginUsername" class="keyword-input" placeholder="Username">
+                                    </div>
+                                    <div class="single-query form-group  col-sm-12">
+                                        <input type="password" name="loginPassword" id="loginPassword" class="keyword-input" placeholder="Password">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-6">
+                                                <div class="search-form-group white form-group text-left">
+                                                    <div class="check-box-2"><i><input type="checkbox" name="check-box"></i></div>
+                                                    <span>Remember Me</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 text-right">
+                                                <a href="#" class="lost-pass">Lost your password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-sm-12">
+                                        <input type="submit" value="Login" class="btn-slide border_radius">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="register-tab">
+                            <div class="agent-p-form">
+                                <form id="registerForm" method="post" class="callus clearfix">
+                                    <div class="col-sm-12 social-logins" style="margin-bottom: 15px;">
+                                        <div id="my-signin2"></div>
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <input type="text" id="username" class="keyword-input" placeholder="Username" required>
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <input type="text" id="email" class="keyword-input" placeholder="Email Address">
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <input type="tel" id="phone" class="keyword-input" placeholder="Phone Number">
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <textarea id="description" class="keyword-input" placeholder="Description" style="width: 100%"></textarea>
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <input type="password" id="password" class="keyword-input" placeholder="Password">
+                                    </div>
+                                    <div class="single-query col-sm-12 form-group">
+                                        <input type="password" id="confirmPassword" class="keyword-input" placeholder="Confirm  Password">
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                        <div class="query-submit-button">
+                                            <input type="submit" value="Register" class="btn-slide">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/web_services/account.js"></script>
+
+<script type="text/javascript">
+
+    function onSuccess(googleUser) {
+        var name = googleUser.getBasicProfile().getName();
+        var email = googleUser.getBasicProfile().getEmail();
+
+        var userData = {
+            Name: name,
+            Email: email,
+            PhoneNumber: ''
+        };
+
+        $.ajax({
+            url: API_HOST + "/api/Account/RegisterSocial",
+            method: 'POST',
+            data: userData,
+            success: function (data) {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                var result = JSON.parse(data);
+                if (result.access_token !== undefined) {
+                    doLoginUser(result.access_token);
+                }
+                else
+                    swal('Error', 'Could not process social login at this time. Please try again or use the register form', 'error');
+            },
+            error: function (xhr, status, error) {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                swal('Error', 'Could not process social login at this time. Please try again or use the register form', 'error');
+            }
+        });
+    }
+
+    function onFailure(error) {
+      console.log(error);
+    }
+
+    function renderButton() {
+      gapi.signin2.render('my-signin1', {
+          'scope': 'profile email https://www.googleapis.com/auth/user.phonenumbers.read',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+</script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Submit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="property" class="padding listing1">
+    <div class="container">
+        <div class="row callus">
+            <div class="col-sm-1 col-md-2"></div>
+            <div class="col-sm-10 col-md-8">
+                <h2 class="text-uppercase bottom40" style="text-align: center;">Submit Your Property</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="single-query form-group bottom20">
+                                <label>Title</label>
+                                <input type="text" id="title" class="keyword-input" placeholder="Enter your property title">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query form-group bottom20">
+                                <label>Street Address</label>
+                                <input type="text" id="street" class="keyword-input" placeholder="Enter block and street address">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query form-group bottom20">
+                                <label>City</label>
+                                <input type="text" id="city" class="keyword-input" placeholder="Enter city">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query form-group bottom20">
+                                <label>Province</label>
+                                <select id="province">
+                                    <option value="Nunavut">Nunavut</option>
+                                    <option value="Quebec">Quebec</option>
+                                    <option value="Northwest Territories">Northwest Territories</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="Saskatchewan">Saskatchewan</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="Yukon">Yukon</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query bottom20">
+                                <label>Status </label>
+                                <div class="intro">
+                                    <select id="status">
+                                        <option>For Sale</option>
+                                        <option>For Rent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query form-group bottom20">
+                                <label>Price</label>
+                                <input type="number" id="price" step="0.01" class="keyword-input" placeholder="$1,000">
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="margin40 bottom15">Property's Photos <i class="fa fa-info-circle help" data-toggle="tooltip" title="add images to upload for property!"></i></h3>
+
+                        <div class="file_uploader bottom20" style="border: 0; padding: 0;">
+                            <form id="upload-widget" method="post" action="" class="dropzone">
+                                <div class="dz-default dz-message">
+                                    <span>
+                                        <i class="fa fa-plus-circle"></i>
+                                        Click here or drop files to upload
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="bottom15 margin40">Property's Detail</h3>
+                    </div>
+                </div>
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="single-query form-group bottom20">
+                                <label>Size (Sq Ft.)</label>
+                                <input type="number" id="size" class="keyword-input" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+
+                            <div class="single-query form-group bottom20">
+                                <label>Bedrooms</label>
+                                <input type="number" id="bedrooms" class="keyword-input" />
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4">
+
+                            <div class="single-query form-group bottom20">
+                                <label>Bathrooms</label>
+                                <input type="number" id="bathrooms" class="keyword-input" />
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-12">
+                            <h3 class="bottom15 margin40">Property's Description </h3>
+                            <textarea class="keyword-input" id="description" style="width: 100%"></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <h3 class="bottom15 margin40">Property's Features</h3>
+                            <div class="search-propertie-filters">
+                                <div class="container-2">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Air Conditioning" name="features[]" />
+                                                <span>Air Conditioning</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Balcony" name="features[]" />
+                                                <span>Balcony</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Gas Heat" name="features[]" />
+                                                <span>Gas Heat</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Fire Place" name="features[]" />
+                                                <span>Fire Place</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Washer and Dryer" name="features[]" />
+                                                <span>Washer and Dryer</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Swimming Pool" name="features[]" />
+                                                <span>Swimming Pool</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Laundry Room" name="features[]" />
+                                                <span>Laundry Room</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Home Theater" name="features[]" />
+                                                <span>Home Theater</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Smoking allowed" name="features[]" />
+                                                <span>Smoking allowed</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Cable TV" name="features[]" />
+                                                <span>Cable TV</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="search-form-group white">
+                                                <input class="features-check" type="checkbox" value="Window Coverings" name="features[]" />
+                                                <span>Window Coverings</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button type="submit" id="submitPropertyBtn" class="btn-blue border_radius margin40">submit property</button>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="col-sm-1 col-md-2"></div>
+
+            <div class="col-sm-4">
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="~/Scripts/web_services/submit-property.js"></script>

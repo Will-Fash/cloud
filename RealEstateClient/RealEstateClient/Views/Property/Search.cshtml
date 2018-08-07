@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Search Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="property-query-area bg_light">
+    <div class="container">
+        <div class="row">
+            <form class="callus" method="post" id="searchForm">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-query form-group">
+                        <input type="text" id="keyword" class="keyword-input" placeholder="Keyword (e.g. 'apartment')">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-query form-group">
+                        <div class="intro">
+                            <select id="province">
+                                <option selected="" value="">Province</option>
+                                <option value="Nunavut">Nunavut</option>
+                                <option value="Quebec">Quebec</option>
+                                <option value="Northwest Territories">Northwest Territories</option>
+                                <option value="Ontario">Ontario</option>
+                                <option value="British Columbia">British Columbia</option>
+                                <option value="Alberta">Alberta</option>
+                                <option value="Saskatchewan">Saskatchewan</option>
+                                <option value="Manitoba">Manitoba</option>
+                                <option value="Yukon">Yukon</option>
+                                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                <option value="New Brunswick">New Brunswick</option>
+                                <option value="Nova Scotia">Nova Scotia</option>
+                                <option value="Prince Edward Island">Prince Edward Island</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-query form-group">
+                        <div class="intro">
+                            <select id="status">
+                                <option class="active" value="">Property Status</option>
+                                <option value="For Sale">For Sale</option>
+                                <option value="For Rent">For Rent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6" style="padding-bottom: 6px;">
+                    <div class="row search-2">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-query form-group">
+                                <div class="intro">
+                                    <input type="number" class="keyword-input" id="minBeds" placeholder="Min Beds" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-query form-group">
+                                <input type="number" class="keyword-input" id="maxBeds" placeholder="Max Beds" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row search-2">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-query form-group">
+                                <input type="number" class="keyword-input" id="minBaths" placeholder="Min Baths" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="single-query form-group">
+                                <input type="number" class="keyword-input" id="maxBaths" placeholder="Max Baths" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="single-query form-group">
+                                <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query form-group">
+                                <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="single-query-slider" id="priceRange">
+                                <label>Price Range:</label>
+                                <div class="price text-right">
+                                    <span>$</span>
+                                    <div class="leftLabel"></div>
+                                    <span>to $</span>
+                                    <div class="rightLabel"></div>
+                                </div>
+                                <div id="rSliderPrice" data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
+                                    <div class="bar"></div>
+                                    <div class="leftGrip"></div>    
+                                    <div class="rightGrip"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-right form-group">
+                            <button type="submit" class="btn-blue border_radius top15">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="listing1" class="listing1 padding_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="uppercase" style="text-align:center;">SEARCH RESULTS</h2>
+                        <p class="heading_space"></p>
+                    </div>
+                </div>
+                <div class="row" id="propertyListings" style="display: flex; flex-wrap: wrap;">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script defer src="~/Scripts/web_services/search.js"></script>
